@@ -38,6 +38,13 @@ const publicDir = path.join(__dirname, "public");
 // Serve static files from the 'public' directory
 app.use(express.static(publicDir));
 
+app.get("/", async (req, res) => {
+  result = {
+    Status: "OK",
+  };
+  res.json(result);
+});
+
 app.get("/images", async (req, res) => {
   try {
     const files = await fs.readdir(publicDir);
@@ -79,7 +86,6 @@ app.get("/images", async (req, res) => {
           height: metadata.height,
           user: userData,
           asset_type: "photo",
-
         };
       })
     );
