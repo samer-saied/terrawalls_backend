@@ -1,0 +1,16 @@
+{
+  "name": "terawalls_backend",
+  "version": "1.0.0",
+  "description": "backend of terrawalls app",
+  "license": "ISC",
+  "author": "Samer Saied",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "sharp": "^0.34.1"
+  }
+}
