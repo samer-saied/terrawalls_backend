@@ -34,7 +34,7 @@ const sharp = require("sharp");
 const app = express();
 const port = 80;
 const publicDir = path.join(__dirname, "public");
-
+console.log(__dirname);
 // Serve static files from the 'public' directory
 app.use(express.static(publicDir));
 
