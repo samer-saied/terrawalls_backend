@@ -39,6 +39,7 @@ app.use(express.static(publicDir));
 
 app.get("/", async (req, res) => {
   result = {
+    Copyrights: "TerraWalls",
     Status: "OK",
   };
   res.json(result);
@@ -69,18 +70,18 @@ app.get("/images", async (req, res) => {
         return {
           id: index + 1,
           urls: {
-            raw: `${req.protocol}s://${req.headers.host}/${file}`,
-            full: `${req.protocol}s://${req.headers.host}/${file}`,
-            regular: `${req.protocol}s://${req.headers.host}/${file}`,
-            small: `${req.protocol}s://${req.headers.host}/${file}`,
-            thumb: `${req.protocol}s://${req.headers.host}/${file}`,
+            raw: `${req.protocol}://${req.headers.host}/${file}`,
+            full: `${req.protocol}://${req.headers.host}/${file}`,
+            regular: `${req.protocol}://${req.headers.host}/${file}`,
+            small: `${req.protocol}://${req.headers.host}/${file}`,
+            thumb: `${req.protocol}://${req.headers.host}/${file}`,
           },
           link: `/${file}`,
           title: title,
           slug: baseName,
           description: title,
           alt_description: title,
-          created_at: null,
+          created_at: createdAt, // Use the actual creation time
           width: metadata.width,
           height: metadata.height,
           user: userData,
@@ -88,8 +89,9 @@ app.get("/images", async (req, res) => {
         };
       })
     );
+    const shuffledImages = imagesData.sort(() => Math.random() - 0.5);
 
-    res.json({ images: imagesData });
+    res.json({ images: shuffledImages });
   } catch (error) {
     console.error("Error reading public directory:", error);
     res.status(500).json({ error: "Failed to retrieve image list" });
