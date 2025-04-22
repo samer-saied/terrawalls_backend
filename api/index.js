@@ -56,8 +56,8 @@ app.get("/images", async (req, res) => {
     const imagesData = await Promise.all(
       imageFiles.map(async (file, index) => {
         const filePath = path.join(publicDir, file);
-        const stats = await fs.stat(filePath);
-        const createdAt = stats.birthtime.toISOString();
+        // const stats = await fs.stat(filePath);
+        // const createdAt = stats.birthtime.toISOString();
 
         const baseName = path.basename(file, path.extname(file));
         const title = baseName
@@ -81,7 +81,7 @@ app.get("/images", async (req, res) => {
           slug: baseName,
           description: title,
           alt_description: title,
-          created_at: createdAt, // Use the actual creation time
+          created_at: null, // Use the actual creation time
           width: metadata.width,
           height: metadata.height,
           user: userData,
