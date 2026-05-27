@@ -6,7 +6,7 @@ const userData = {
   first_name: "Terra",
   last_name: "Walls",
   twitter_username: null,
-  portfolio_url: "https://www.samersaied.site/",
+  portfolio_url: "https://www.samersaied.site",
   bio: null,
   location: "Egypt",
   instagram_username: null,
@@ -20,7 +20,7 @@ const userData = {
   for_hire: false,
   social: {
     instagram_username: null,
-    portfolio_url: "https://samer-saied.vercel.app/",
+    portfolio_url: "https://www.samersaied.site",
     twitter_username: null,
     paypal_email: null,
   },
